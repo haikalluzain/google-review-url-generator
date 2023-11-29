@@ -3,9 +3,7 @@
   <br>
 </h1>
 
-## Install
-
-#### Requirements
+### Requirements
 
 - Install Git
 - Install PHP 8.1

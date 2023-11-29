@@ -292,7 +292,7 @@ export default {
       this.$refs["input"],
       {
         fields: ["place_id", "name", "url", "formatted_address"],
-        types: ["point_of_interest"],
+        // types: ["point_of_interest"],
       }
     );
 
@@ -316,7 +316,6 @@ export default {
   },
   methods: {
     locationChanged(val) {
-      console.log(val);
       this.hasLocation = true;
       this.location.name = `${val.name}, ${val.formatted_address}`;
       this.location.placeId = val.placeId;

@@ -1,5 +1,6 @@
 <script setup>
 import InputLabel from "@/Components/InputLabel.vue";
+import { Head } from '@inertiajs/vue3';
 import { ref } from "vue";
 import { onMounted } from "vue";
 
@@ -24,29 +25,33 @@ defineExpose({ focus: () => input.value.focus() });
 </script>
 
 <template>
+    <Head title="Google Review URL Generator" />
   <div
-    class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0"
+    class="flex flex-col items-center min-h-screen pt-6 bg-hd-base-original sm:justify-center sm:pt-0"
   >
+    <div class="w-40 mb-4 text-gray-500 fill-current">
+      <img src="/img/logo_color_bgtransparent_h_cropped_print.png" />
+    </div>
     <div class="max-w-screen-xl px-4 py-4 mx-auto">
       <div class="max-w-screen-sm mx-auto mb-4 text-center">
-        <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900">
+        <h2 class="mb-4 text-4xl font-bold tracking-tight text-gray-900">
           Google Review URL Generator
         </h2>
         <p class="font-light text-gray-500 sm:text-xl">
-          The ultimate tool to simplifies the process of generating Google Review links for your business.
+          The ultimate tool to simplifies the process of generating Google
+          Review links for your business.
         </p>
       </div>
     </div>
 
     <div
-      class="w-full px-6 py-4 mt-6 mb-6 overflow-hidden bg-white shadow-md sm:max-w-2xl sm:rounded-lg"
+      class="w-full px-6 py-4 mt-6 mb-6 overflow-hidden bg-white shadow sm:max-w-2xl sm:rounded-lg ring-1 ring-gray-200"
     >
-      <Head title="Google Review URL Generator" />
       <form @submit.prevent="submit">
-        <div >
+        <div>
           <InputLabel for="email" value="Search Location" />
           <input
-            class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            class="relative block w-full px-3 py-2 text-sm text-gray-900 placeholder-gray-400 bg-white border-0 rounded-md shadow-sm form-input disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none dark:placeholder-gray-500 dark:bg-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-2 focus:ring-hd-secondary-500 dark:focus:ring-secondary-400"
             ref="input"
             @input="(ev) => (location.address = ev.target.value)"
           />
@@ -86,10 +91,10 @@ defineExpose({ focus: () => input.value.focus() });
 
     <div
       v-show="hasLocation"
-      class="w-full max-w-3xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8"
+      class="w-full max-w-3xl p-4 bg-white rounded-lg shadow ring-1 ring-gray-200 sm:p-8"
     >
       <div class="flex items-center justify-between mb-4">
-        <h5 class="text-xl font-bold text-gray-900">
+        <h5 class="text-xl font-semibold text-gray-900">
           {{ location.name }}
         </h5>
       </div>
@@ -100,7 +105,7 @@ defineExpose({ focus: () => input.value.focus() });
               <div class="flex-shrink-0">
                 <span
                   type="button"
-                  class="text-white bg-indigo-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+                  class="text-white bg-hd-secondary-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +133,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <a
                   :href="location.reviewListLink"
                   target="_blank"
-                  class="text-sm text-indigo-500 no-underline break-all hover:underline"
+                  class="text-sm no-underline break-all text-hd-secondary-500 hover:underline"
                   >{{ location.reviewListLink }}</a
                 >
               </div>
@@ -138,7 +143,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <button
                   type="button"
                   @click="copy(location.reviewListLink)"
-                  class="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
+                  class="p-2 text-sm font-medium text-gray-400 bg-white border border-gray-400 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 hover:border-hd-secondary-400 hover:text-hd-secondary-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +171,7 @@ defineExpose({ focus: () => input.value.focus() });
               <div class="flex-shrink-0">
                 <span
                   type="button"
-                  class="text-white bg-indigo-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+                  class="text-white bg-hd-secondary-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +198,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <a
                   :href="location.addReviewLink"
                   target="_blank"
-                  class="text-sm text-indigo-500 no-underline break-all hover:underline"
+                  class="text-sm no-underline break-all text-hd-secondary-500 hover:underline"
                   >{{ location.addReviewLink }}</a
                 >
               </div>
@@ -203,7 +208,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <button
                   type="button"
                   @click="copy(location.addReviewLink)"
-                  class="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
+                  class="p-2 text-sm font-medium text-gray-400 bg-white border border-gray-400 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 hover:border-hd-secondary-400 hover:text-hd-secondary-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -231,9 +236,25 @@ defineExpose({ focus: () => input.value.focus() });
               <div class="flex-shrink-0">
                 <span
                   type="button"
-                  class="text-white bg-indigo-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
+                  class="text-white bg-hd-secondary-500 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
                 >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-map-pin"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
                 </span>
               </div>
               <div class="flex-1 min-w-0 ms-4">
@@ -243,7 +264,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <a
                   :href="location.mapsLink"
                   target="_blank"
-                  class="text-sm text-indigo-500 no-underline break-all hover:underline"
+                  class="text-sm no-underline break-all text-hd-secondary-500 hover:underline"
                   >{{ location.mapsLink }}</a
                 >
               </div>
@@ -253,7 +274,7 @@ defineExpose({ focus: () => input.value.focus() });
                 <button
                   type="button"
                   @click="copy(location.mapsLink)"
-                  class="p-2 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200"
+                  class="p-2 text-sm font-medium text-gray-400 bg-white border border-gray-400 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 hover:border-hd-secondary-400 hover:text-hd-secondary-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -279,9 +300,13 @@ defineExpose({ focus: () => input.value.focus() });
         </ul>
       </div>
     </div>
-    <div v-show="copied" class="p-4 my-4 text-sm text-green-800 rounded-lg bg-green-50" role="alert">
-  <span class="font-medium">Link copied!</span>
-</div>
+    <div
+      v-show="copied"
+      class="p-4 my-4 text-sm rounded-lg text-hd-secondary-800 bg-hd-secondary-100"
+      role="alert"
+    >
+      <span class="font-medium">Link copied!</span>
+    </div>
   </div>
 </template>
 
@@ -325,7 +350,7 @@ export default {
     },
     async copy(s) {
       await navigator.clipboard.writeText(s);
-      this.copied = true
+      this.copied = true;
     },
   },
 };
